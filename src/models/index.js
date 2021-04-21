@@ -1,4 +1,3 @@
-//https://sequelize.org/v4/manual/installation/usage.html
 
 const Sequelize = require('sequelize')
 const connection = new Sequelize('mysql://sequelize:1234@localhost:3306/sequelize')

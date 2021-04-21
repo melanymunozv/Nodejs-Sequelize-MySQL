@@ -1,9 +1,11 @@
 require('dotenv').config()
 const express=require('express')
 const app = express()
+const rtMain=require('./routers/rtMain')
 
+app.use(express.json()) //sino escribo esto llega el body vacio
 
-
+app.use('/',rtMain)
 //conexion a la bd
 const DB = require('./models')
 DB.connection.authenticate()
