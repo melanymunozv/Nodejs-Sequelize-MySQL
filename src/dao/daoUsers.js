@@ -8,10 +8,15 @@ let daoUsers={}
 
 daoUsers.create=(user)=>{
     return new Promise((resolved)=>{
-        db.user.create()
+        db.user.create(user)
         .then(data=>resolved(data))
-        .catch()
     })
 }
-
+daoUsers.find=()=>{
+    return new Promise((resolved)=>{
+        db.user.findAll({
+            includes: [db.article, db.profile]
+        }).then(data=>resolved(data))
+    })
+}
 module.exports=daoUsers
