@@ -8,6 +8,9 @@ db.Sequelize=Sequelize
 db.connection=connection
 
 db.user=require("./User.model")(connection,Sequelize)
+db.article=require("./Article.model")(connection,Sequelize)
+
+db.user.hasMany(db.article)
 
 db.connection.sync()
 module.exports=db
